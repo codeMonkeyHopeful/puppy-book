@@ -15,23 +15,37 @@ const UserInfoDisplay = () => {
   };
 
   return (
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid text-center">
       <div class="container">
-        <h1 class="display-4">Your Current Profile</h1>
+        <h3 class="display-4">Your Current Profile</h3>
         <div className="form-group">
-          <p id="user-name">Name: {userInfo.name}</p>
-          <p id="user-name">Username: {userInfo.userName}</p>
-          <p id="user-email">Email: {userInfo.userEmail}</p>
-          <p id="user-location">Location: {userInfo.userLocation}</p>
+          <p id="user-name">
+            <b>Name:</b> {userInfo.name}
+          </p>
+          <p id="user-name">
+            <b>Username:</b> {userInfo.userName}
+          </p>
+          <p id="user-email">
+            <b>Email:</b> {userInfo.userEmail}
+          </p>
+          <p id="user-location">
+            <b>Location:</b> {userInfo.userLocation}
+          </p>
           <p id="user-subscription">
             You currently <b>{userInfo.subscription ? "ARE" : "ARE NOT"}</b>
             subscribed to "Refined Pup Monthly".
           </p>
         </div>
       </div>
-      <button type="button" onClick={openProfileUpdate}>
-        Change my profile
-      </button>
+      <div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={openProfileUpdate}
+        >
+          Change my profile
+        </button>
+      </div>
     </div>
   );
 };
