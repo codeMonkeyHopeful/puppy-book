@@ -1,16 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
-// import Hoc from "./hoc/hoc";
 
-// import Login from "./containers/Login";
-// import Signup from "./containers/Signup";
-// import HomepageLayout from "./containers/Home";
-import Home from "../src/components/Home";
+import { Home, Subscriptions } from "./components/index";
 
 const BaseRouter = () => (
   <div>
-    {/* <Route path="/login" component={Login} />
-    <Route path="/signup" component={Signup} /> */}
+    <Route path="/subscriptions" component={Subscriptions} />
     <Route exact path="/" component={Home} />
   </div>
 );
