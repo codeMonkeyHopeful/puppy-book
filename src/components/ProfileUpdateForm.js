@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUserProfileDisplay } from "../store/actionCreators";
+import {
+  updateUserProfileDisplay,
+  postUpdateUserProfile,
+} from "../store/actionCreators";
 
 const ProfileUpdateForm = (props) => {
   const dispatch = useDispatch();
@@ -10,12 +13,20 @@ const ProfileUpdateForm = (props) => {
     e.preventDefault();
     const email = e.target.email.value;
     const userLocation = e.target.location.value;
-    const subscription = e.target.subscribe.value; // on = checked off= not checked
+    const subscription = e.target.subscribe.value == "on" ? 1 : 0; // on = checked off= not checked
+    const name = e.target.name.value;
+    const userData = {
+      userEmail: email,
+      userLocation: userLocation,
+      subscription: subscription,
+      name: name,
+    };
+    dispatch(postUpdateUserProfile(userData));
     dispatch(updateUserProfileDisplay(false));
   }
 
   return (
-    <div>
+    <div id="update-profile-form-container">
       <form onSubmit={onSubmit}>
         <div class="form-group">
           <label for="email">Email address</label>
@@ -47,7 +58,7 @@ const ProfileUpdateForm = (props) => {
             maxLength="30"
             class="form-control"
             id="name"
-            placeholder="Your new name..."
+            placeholder="Your new name... Wait...Why do you need a new name?!"
           />
         </div>
         <div class="form-check">
@@ -56,9 +67,11 @@ const ProfileUpdateForm = (props) => {
             Subscribe to Refined Pup Monthly
           </label>
         </div>
-        <button type="submit" class="btn btn-primary">
-          Submit
-        </button>
+        <div className="button-container">
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import {
   GOT_USER_DATA,
   UPDATE_USER_PROFILE_DISPLAY,
   GOT_USER_SUBSCRIPTIONS,
+  UPDATE_USER_PROFILE_DETAILS,
 } from "./actions";
 
 const userDataDefault = {
@@ -26,6 +27,20 @@ export function userReducer(userData = userDataDefault, action) {
         userId: action.userData.userId,
         userEmail: action.userData.userEmail,
         userLocation: action.userData.userLocation,
+      };
+    case UPDATE_USER_PROFILE_DETAILS:
+      return {
+        ...userData,
+        userEmail: action.userData.userEmail
+          ? action.userData.userEmail
+          : userData.userEmail,
+        userLocation: action.userData.userLocation
+          ? action.userData.userLocation
+          : userData.userLocation,
+        subscription: action.userData.subscription
+          ? action.userData.subscription
+          : userData.subscription,
+        name: action.userData.name ? action.userData.name : userData.name,
       };
     default:
       return userData;

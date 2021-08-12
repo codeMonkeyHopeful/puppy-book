@@ -41,7 +41,7 @@ const UserInfoDisplay = () => {
           </p>
         </div>
       </div>
-      <div>
+      <div className="button-container">
         <button
           type="button"
           className="btn btn-primary"

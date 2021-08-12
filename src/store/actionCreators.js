@@ -9,6 +9,7 @@ import {
   GOT_USER_DATA,
   UPDATE_USER_PROFILE_DISPLAY,
   GOT_USER_SUBSCRIPTIONS,
+  UPDATE_USER_PROFILE_DETAILS,
 } from "./actions";
 
 // export function getUserEmail(id) {
@@ -48,6 +49,14 @@ export function getCurrentUserInfo(user) {
   };
 }
 
+export function gotCurrentUserInfo(userData) {
+  const action = {
+    type: GOT_USER_DATA,
+    userData: userData,
+  };
+  return action;
+}
+
 export function updateUserProfileDisplay(displayStatus) {
   return (dispatch) => {
     dispatch(updateUserProfileAction(displayStatus));
@@ -62,9 +71,16 @@ export function updateUserProfileAction(display) {
   return action;
 }
 
-export function gotCurrentUserInfo(userData) {
+export function postUpdateUserProfile(userData) {
+  //axios call here and use the response to populate
+  return (dispatch) => {
+    dispatch(gotUpdateUserProfile(userData));
+  };
+}
+
+export function gotUpdateUserProfile(userData) {
   const action = {
-    type: GOT_USER_DATA,
+    type: UPDATE_USER_PROFILE_DETAILS,
     userData: userData,
   };
   return action;
