@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { updateUserProfileDisplay } from "../store/actionCreators";
 
 const ProfileUpdateForm = (props) => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ const ProfileUpdateForm = (props) => {
     e.preventDefault();
     const email = e.target.email.value;
     const userLocation = e.target.location.value;
+    dispatch(updateUserProfileDisplay(false));
   }
 
   return (

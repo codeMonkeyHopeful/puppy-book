@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCurrentUserInfo } from "../store/actionCreators";
+import {
+  getCurrentUserInfo,
+  updateUserProfileDisplay,
+} from "../store/actionCreators";
 
 const UserInfoDisplay = () => {
   const dispatch = useDispatch();
@@ -12,6 +15,7 @@ const UserInfoDisplay = () => {
 
   const openProfileUpdate = () => {
     console.log("Clicked");
+    dispatch(updateUserProfileDisplay(true));
   };
 
   return (

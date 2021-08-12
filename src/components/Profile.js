@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCurrentUserInfo } from "../store/actionCreators";
+import {
+  getCurrentUserInfo,
+  updateUserProfileDisplay,
+} from "../store/actionCreators";
 import UserInfoDisplay from "./UserInfoDisplay";
 import ProfileUpdateForm from "./ProfileUpdateForm";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.currentUser).userName;
-  const display = false;
+  const display = useSelector((state) => state.settings).profileUpdate;
 
   useEffect(() => {
     dispatch(getCurrentUserInfo(userName));
@@ -18,6 +21,7 @@ const Profile = () => {
     const email = e.target.email.value;
     const userLocation = e.target.location.value;
     // dispatch(updateUserInfo)
+    dispatch(updateUserProfileDisplay(false));
   }
 
   return (
@@ -25,7 +29,6 @@ const Profile = () => {
       {display ? (
         <div>
           <UserInfoDisplay />
-
           <ProfileUpdateForm />
         </div>
       ) : (

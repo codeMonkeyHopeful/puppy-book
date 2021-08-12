@@ -1,6 +1,7 @@
 import {
   GOT_USER_NAME,
   GOT_USER_DATA,
+  UPDATE_USER_PROFILE_DISPLAY,
   GOT_USER_SUBSCRIPTIONS,
 } from "./actions";
 
@@ -28,6 +29,21 @@ export function userReducer(userData = userDataDefault, action) {
       };
     default:
       return userData;
+  }
+}
+
+const settingsDefault = {
+  profileUpdate: false, //Triggers whether or not we are displaying profile ProfileUpdateForm component
+};
+export function settingsReducer(settings = settingsDefault, action) {
+  switch (action.type) {
+    case UPDATE_USER_PROFILE_DISPLAY:
+      return {
+        ...settings,
+        profileUpdate: action.display,
+      };
+    default:
+      return settings;
   }
 }
 

@@ -7,6 +7,7 @@ import axios from "axios";
 import {
   GOT_USER_NAME,
   GOT_USER_DATA,
+  UPDATE_USER_PROFILE_DISPLAY,
   GOT_USER_SUBSCRIPTIONS,
 } from "./actions";
 
@@ -45,6 +46,20 @@ export function getCurrentUserInfo(user) {
     };
     dispatch(gotCurrentUserInfo(userData));
   };
+}
+
+export function updateUserProfileDisplay(displayStatus) {
+  return (dispatch) => {
+    dispatch(updateUserProfileAction(displayStatus));
+  };
+}
+
+export function updateUserProfileAction(display) {
+  const action = {
+    type: UPDATE_USER_PROFILE_DISPLAY,
+    display: display,
+  };
+  return action;
 }
 
 export function gotCurrentUserInfo(userData) {
