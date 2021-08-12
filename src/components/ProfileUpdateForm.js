@@ -10,6 +10,7 @@ const ProfileUpdateForm = (props) => {
     e.preventDefault();
     const email = e.target.email.value;
     const userLocation = e.target.location.value;
+    const subscription = e.target.subscribe.value; // on = checked off= not checked
     dispatch(updateUserProfileDisplay(false));
   }
 
@@ -37,6 +38,16 @@ const ProfileUpdateForm = (props) => {
             class="form-control"
             id="location"
             placeholder="Your new location..."
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            maxLength="30"
+            class="form-control"
+            id="name"
+            placeholder="Your new name..."
           />
         </div>
         <div class="form-check">
