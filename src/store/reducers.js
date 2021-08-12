@@ -5,10 +5,12 @@ import {
 } from "./actions";
 
 const userDataDefault = {
-  userName: "",
-  userId: null,
-  userEmail: "",
-  userLocation: "",
+  userName: "name", //non-modifiable
+  userId: null, //non-modifiable can be used int he larger app to track
+  userEmail: "email",
+  userLocation: "location",
+  subscription: 0, //Binary, is the user willing to receive Refined Pup Monthly?
+  name: "Brady",
 };
 export function userReducer(userData = userDataDefault, action) {
   switch (action.type) {
