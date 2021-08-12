@@ -6,8 +6,7 @@ import { userReducer, chartOneReducer, chartTwoReducer } from "./reducers";
 // create the state's shape and data
 const rootReducer = combineReducers({
   currentUser: userReducer,
-  chartOne: chartOneReducer,
-  chartTwo: chartTwoReducer,
+  // add user subs here
 });
 
 export default rootReducer;

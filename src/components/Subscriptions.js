@@ -1,7 +1,17 @@
-import React, { useEffect, Component } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCurrentUserInfo } from "../store/actionCreators";
 
 const Subscriptions = () => {
-  return <div>Subscriptions go here</div>;
+  const dispatch = useDispatch();
+  // THIS SECTION USED FOR TESTING
+  const user = useSelector((state) => state.currentUser).userName;
+
+  useEffect(() => {
+    dispatch(getCurrentUserInfo("Brady"));
+  }, []);
+
+  return <button></button>;
 };
 
 export default Subscriptions;

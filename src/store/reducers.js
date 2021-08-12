@@ -1,29 +1,37 @@
-import { GOT_USER_EMAIL, GOT_CHART_ONE, GOT_CHART_TWO } from "./actions";
+import {
+  GOT_USER_NAME,
+  GOT_USER_DATA,
+  GOT_USER_SUBSCRIPTIONS,
+} from "./actions";
 
-export function userReducer(userEmail = "default@indeed.com", action) {
+const userDataDefault = {
+  userName: "",
+  userId: null,
+  userEmail: "",
+  userLocation: "",
+};
+export function userReducer(userData = userDataDefault, action) {
   switch (action.type) {
-    // placeholder
-    case GOT_USER_EMAIL:
-      return action.userEmail;
+    case GOT_USER_NAME:
+      return {
+        ...userData,
+        userName: action.userName,
+      };
+    case GOT_USER_DATA:
+      return {
+        ...userData,
+        userId: action.userData.userId,
+        userEmail: action.userData.userEmail,
+        userLocation: action.userData.userLocation,
+      };
     default:
-      return userEmail;
+      return userData;
   }
 }
 
-export function chartOneReducer(data = [], action) {
+export function subscriptionReducer(subscriptions = [], action) {
   switch (action.type) {
-    case GOT_CHART_ONE:
-      return action.data;
-    default:
-      return data;
-  }
-}
-
-export function chartTwoReducer(data = [], action) {
-  switch (action.type) {
-    case GOT_CHART_TWO:
-      return action.data;
-    default:
-      return data;
+    case GOT_USER_SUBSCRIPTIONS:
+      return;
   }
 }
