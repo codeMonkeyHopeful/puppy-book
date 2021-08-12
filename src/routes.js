@@ -7,11 +7,11 @@ import Signup from "./containers/Signup";
 import HomepageLayout from "./containers/Home";
 
 const BaseRouter = () => (
-  <Hoc>
+  <div>
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
     <Route exact path="/" component={HomepageLayout} />
-  </Hoc>
+  </div>
 );
 
 export default BaseRouter;
