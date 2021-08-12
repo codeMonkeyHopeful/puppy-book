@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCurrentUserInfo } from "../store/actionCreators";
 import UserInfoDisplay from "./UserInfoDisplay";
+import ProfileUpdateForm from "./ProfileUpdateForm";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.currentUser).userName;
+  const display = false;
 
   useEffect(() => {
     dispatch(getCurrentUserInfo(userName));
@@ -20,43 +22,15 @@ const Profile = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            aria-describedby="emailHelp"
-            placeholder="Your new email..."
-          />
-          <small id="emailHelp" class="form-text text-muted">
-            We'll never share your email with anyone else.
-          </small>
+      {display ? (
+        <div>
+          <UserInfoDisplay />
+
+          <ProfileUpdateForm />
         </div>
-        <div class="form-group">
-          <label for="location">Password</label>
-          <input
-            type="text"
-            maxLength="30"
-            class="form-control"
-            id="location"
-            placeholder="Your new location..."
-          />
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="subscribe" />
-          <label class="subscribe" for="exampleCheck1">
-            Subscribe to Refined Pup Monthly
-          </label>
-        </div>
-        <button type="submit" class="btn btn-primary">
-          Submit
-        </button>
-      </form>
-      <div>
+      ) : (
         <UserInfoDisplay />
-      </div>
+      )}
     </div>
   );
 };
