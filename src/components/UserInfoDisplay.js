@@ -36,7 +36,7 @@ const UserInfoDisplay = () => {
             <b>Location:</b> {userInfo.userLocation}
           </p>
           <p id="user-subscription">
-            You currently <b>{userInfo.subscription ? "ARE" : "ARE NOT"}</b>
+            You currently <b>{userInfo.subscription ? "ARE " : "ARE NOT "}</b>
             subscribed to "Refined Pup Monthly".
           </p>
         </div>

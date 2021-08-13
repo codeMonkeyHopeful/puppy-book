@@ -13,14 +13,16 @@ const ProfileUpdateForm = (props) => {
     e.preventDefault();
     const email = e.target.email.value;
     const userLocation = e.target.location.value;
-    const subscription = e.target.subscribe.value == "on" ? 1 : 0; // on = checked off= not checked
+    const subscription = e.target.subscribe.checked; //Treat as checkbox NOT text
     const name = e.target.name.value;
     const userData = {
       userEmail: email,
       userLocation: userLocation,
       subscription: subscription,
+
       name: name,
     };
+    console.log(subscription, typeof subscription);
     dispatch(postUpdateUserProfile(userData));
     dispatch(updateUserProfileDisplay(false));
   }
