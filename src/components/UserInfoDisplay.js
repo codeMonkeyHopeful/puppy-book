@@ -9,12 +9,9 @@ const UserInfoDisplay = () => {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.currentUser);
 
-  useEffect(() => {
-    console.log("Change");
-  }, [userInfo]);
+  useEffect(() => {}, [userInfo]);
 
   const openProfileUpdate = () => {
-    console.log("Clicked");
     dispatch(updateUserProfileDisplay(true));
   };
 

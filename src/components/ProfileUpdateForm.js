@@ -19,7 +19,6 @@ const ProfileUpdateForm = (props) => {
       userEmail: email,
       userLocation: userLocation,
       subscription: subscription,
-
       name: name,
     };
     console.log(subscription, typeof subscription);
@@ -30,11 +29,11 @@ const ProfileUpdateForm = (props) => {
   return (
     <div id="update-profile-form-container">
       <form onSubmit={onSubmit}>
-        <div class="form-group">
+        <div className="form-group">
           <label for="email">Email address</label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="email"
             aria-describedby="emailHelp"
             placeholder="Your new email..."
@@ -48,7 +47,7 @@ const ProfileUpdateForm = (props) => {
           <input
             type="text"
             maxLength="30"
-            class="form-control"
+            className="form-control"
             id="location"
             placeholder="Your new location..."
           />
@@ -58,14 +57,14 @@ const ProfileUpdateForm = (props) => {
           <input
             type="text"
             maxLength="30"
-            class="form-control"
+            className="form-control"
             id="name"
             placeholder="Your new name... Wait...Why do you need a new name?!"
           />
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="subscribe" />
-          <label class="subscribe" for="exampleCheck1">
+          <label className="subscribe" for="exampleCheck1">
             Subscribe to Refined Pup Monthly
           </label>
         </div>
