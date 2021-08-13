@@ -12,22 +12,18 @@ import {
   UPDATE_USER_PROFILE_DETAILS,
 } from "./actions";
 
-// export function getUserEmail(id) {
-//     return (dispatch) => {
-//         // axios
-//         //     .get(`/api/userldap`)
-//         //     .then((response) => {
-//         //         dispatch(gotUserEmail(response.data));
-//         //     })
-//         //     .catch((e) => console.log('get User Email Error: ', e));
-//         dispatch(gotUserEmail('ryan'));
-//     };
-// }
-
 export function getUserName(user) {
   return (dispatch) => {
-    let userName = user;
-    dispatch(gotUserName(userName));
+    axios
+      .get(`http://localhost:8000/api/login/${user}`)
+      .then((response) => {
+        console.log(response.data);
+        dispatch(gotUserName(response.data));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    // let userName = user;
   };
 }
 export const gotUserName = (userName) => {

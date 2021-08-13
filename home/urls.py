@@ -15,8 +15,8 @@ urlpatterns = [
     # path('rest-auth/', include('rest_auth.urls')),
     # path('rest-auth/registration/', include('rest_auth.registration.urls')),
     # path('admin/', admin.site.urls),
-    path('api/', views.SaveUserTextNote.as_view(), name="none"),
-    path('banana/', views.Banana.as_view(), name="none"),
-    # re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
+    path('api/', views.APIMain.as_view(), name="none"),
+    path('api/login/<str:user_name>', views.UserLogin, name="UserLogin"),
+    path('api/profile/<str:user_name>', views.UserData, name='UserData')
     
 ]
