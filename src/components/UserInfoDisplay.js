@@ -9,7 +9,12 @@ const UserInfoDisplay = () => {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.currentUser);
 
-  useEffect(() => {}, [userInfo]);
+  useEffect(() => {
+    // initial grab of the users info
+    if (userInfo.userId == null) {
+      dispatch(getCurrentUserInfo(userInfo.userName));
+    }
+  }, []);
 
   const openProfileUpdate = () => {
     dispatch(updateUserProfileDisplay(true));

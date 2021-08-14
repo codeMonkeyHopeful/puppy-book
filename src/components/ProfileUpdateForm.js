@@ -21,7 +21,6 @@ const ProfileUpdateForm = (props) => {
       subscription: subscription,
       name: name,
     };
-    console.log(subscription, typeof subscription);
     dispatch(postUpdateUserProfile(userData));
     dispatch(updateUserProfileDisplay(false));
   }

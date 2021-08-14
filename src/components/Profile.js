@@ -9,11 +9,11 @@ import ProfileUpdateForm from "./ProfileUpdateForm";
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const userName = useSelector((state) => state.currentUser).userName;
+  const userInfo = useSelector((state) => state.currentUser);
   const display = useSelector((state) => state.settings).profileUpdate;
 
   useEffect(() => {
-    dispatch(getCurrentUserInfo(userName));
+    dispatch(getCurrentUserInfo(userInfo.userName));
   }, []);
 
   function onSubmit(e) {

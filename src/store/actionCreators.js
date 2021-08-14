@@ -23,7 +23,6 @@ export function getUserName(user) {
       .catch((e) => {
         console.log(e);
       });
-    // let userName = user;
   };
 }
 export const gotUserName = (userName) => {
@@ -36,12 +35,21 @@ export const gotUserName = (userName) => {
 
 export function getCurrentUserInfo(user) {
   return (dispatch) => {
-    let userData = {
-      userId: 1234,
-      userEmail: "brady@gmail.com",
-      userLocation: "Barkerville, OH",
-    };
-    dispatch(gotCurrentUserInfo(userData));
+    axios
+      .get(`http://localhost:8000/api/profile/${user}`)
+      .then((response) => {
+        console.log("HERE", response.data);
+        const userInfoJSON = JSON.parse(response.data);
+        dispatch(gotCurrentUserInfo(userInfoJSON));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    // let userData = {
+    //   userId: 1234,
+    //   userEmail: "brady@gmail.com",
+    //   userLocation: "Barkerville, OH",
+    // };
   };
 }
 
