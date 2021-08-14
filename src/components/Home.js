@@ -20,7 +20,7 @@ const Home = () => {
       <div className="centered">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <lable for="user_input">What is your UserName?</lable>
+            <label htmlFor="user_input">What is your UserName?</label>
             <input type="text" id="user_input" className="form-control"></input>
           </div>
         </form>

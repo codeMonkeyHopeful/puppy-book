@@ -29,7 +29,7 @@ const ProfileUpdateForm = (props) => {
     <div id="update-profile-form-container">
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label for="email">Email address</label>
+          <label htmlFor="email">Email address</label>
           <input
             type="email"
             className="form-control"
@@ -42,7 +42,7 @@ const ProfileUpdateForm = (props) => {
           </small>
         </div>
         <div class="form-group">
-          <label for="location">Location</label>
+          <label htmlFor="location">Location</label>
           <input
             type="text"
             maxLength="30"
@@ -52,7 +52,7 @@ const ProfileUpdateForm = (props) => {
           />
         </div>
         <div class="form-group">
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             maxLength="30"
@@ -63,7 +63,7 @@ const ProfileUpdateForm = (props) => {
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="subscribe" />
-          <label className="subscribe" for="exampleCheck1">
+          <label className="subscribe" htmlFor="exampleCheck1">
             Subscribe to Refined Pup Monthly
           </label>
         </div>

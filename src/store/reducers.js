@@ -24,6 +24,7 @@ export function userReducer(userData = userDataDefault, action) {
     case GOT_USER_DATA:
       return {
         ...userData,
+        name: action.userData.name,
         userId: action.userData.userId,
         userEmail: action.userData.userEmail,
         userLocation: action.userData.userLocation,

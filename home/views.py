@@ -24,13 +24,14 @@ def UserLogin(request, *args, **kwargs):
         return HttpResponse("")
 
 
-def UserData(request, *args, **kwargs):
+def GetUserData(request, *args, **kwargs):
     # mocking a call to the DB here, in reality this would use the params to hit the DB, pull back the specific user's dat and put it on the route
     # in our case we are assuming its Brady or Nothing
     user_name = kwargs.get("user_name").lower()
     # should make call to DB here
-    if user_name:
+    if user_name == "brady":
         brady_data = {
+            "name": "Brady",
             "userId": 1234,
             "userEmail": "brady@gmail.com",
             "userLocation": "Barkerville, OH",
@@ -41,3 +42,7 @@ def UserData(request, *args, **kwargs):
         return HttpResponse(json.dumps(brady_data))
     else:
         return HttpResponse("")
+
+
+def UpdateUserData(request, *args, **kwargs):
+    return HttpResponse(status=200)

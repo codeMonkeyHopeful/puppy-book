@@ -35,7 +35,7 @@ export const gotUserName = (userName) => {
 export function getCurrentUserInfo(user) {
   return (dispatch) => {
     axios
-      .get(`http://localhost:8000/api/profile/${user}`)
+      .get(`http://localhost:8000/api/user/getprofile/${user}`)
       .then((response) => {
         const userInfoJSON = JSON.parse(response.data);
         dispatch(gotCurrentUserInfo(userInfoJSON));
