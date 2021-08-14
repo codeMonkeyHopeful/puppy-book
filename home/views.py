@@ -48,13 +48,12 @@ def UpdateUserData1(request, *args, **kwargs):
     # This would update the data in the DB before returning a status code that we could use to check the success/fail of the upsert
     user_data = id = request.GET["userData"]
 
-    print("HERE", json.dumps(user_data))
     return JsonResponse(json.dumps(user_data))
 
 
 class UpdateUserData(View):
     def get(self, request):
         user = request.GET["userData"]
-        print("HERE", user)
-        # userJSON = json.dumps(user)
+        """ pass the data to the DB here and use the status code to send back the data or not
+        for now we are just passing the data back since there is no DB connection"""
         return JsonResponse(user, safe=False)
