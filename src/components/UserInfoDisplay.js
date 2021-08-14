@@ -13,6 +13,8 @@ const UserInfoDisplay = () => {
     // initial grab of the users info
     if (userInfo.userId == null) {
       dispatch(getCurrentUserInfo(userInfo.userName));
+    } else {
+      // update the db here with the new data
     }
   }, []);
 

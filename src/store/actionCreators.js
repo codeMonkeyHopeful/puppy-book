@@ -17,7 +17,6 @@ export function getUserName(user) {
     axios
       .get(`http://localhost:8000/api/login/${user}`)
       .then((response) => {
-        console.log(response.data);
         dispatch(gotUserName(response.data));
       })
       .catch((e) => {
@@ -38,18 +37,12 @@ export function getCurrentUserInfo(user) {
     axios
       .get(`http://localhost:8000/api/profile/${user}`)
       .then((response) => {
-        console.log("HERE", response.data);
         const userInfoJSON = JSON.parse(response.data);
         dispatch(gotCurrentUserInfo(userInfoJSON));
       })
       .catch((e) => {
         console.log(e);
       });
-    // let userData = {
-    //   userId: 1234,
-    //   userEmail: "brady@gmail.com",
-    //   userLocation: "Barkerville, OH",
-    // };
   };
 }
 

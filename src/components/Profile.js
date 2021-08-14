@@ -16,14 +16,6 @@ const Profile = () => {
     dispatch(getCurrentUserInfo(userInfo.userName));
   }, []);
 
-  function onSubmit(e) {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const userLocation = e.target.location.value;
-    // dispatch(updateUserInfo)
-    dispatch(updateUserProfileDisplay(false));
-  }
-
   return (
     <div>
       {display ? (
