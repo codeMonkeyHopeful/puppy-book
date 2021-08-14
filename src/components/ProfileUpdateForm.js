@@ -37,11 +37,11 @@ const ProfileUpdateForm = (props) => {
             aria-describedby="emailHelp"
             placeholder="Your new email..."
           />
-          <small id="emailHelp" class="form-text text-muted">
+          <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label htmlFor="location">Location</label>
           <input
             type="text"
@@ -51,7 +51,7 @@ const ProfileUpdateForm = (props) => {
             placeholder="Your new location..."
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -61,14 +61,14 @@ const ProfileUpdateForm = (props) => {
             placeholder="Your new name... Wait...Why do you need a new name?!"
           />
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="subscribe" />
+        <div className="form-check">
+          <input type="checkbox" className="form-check-input" id="subscribe" />
           <label className="subscribe" htmlFor="exampleCheck1">
             Subscribe to Refined Pup Monthly
           </label>
         </div>
         <div className="button-container">
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>

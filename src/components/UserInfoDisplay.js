@@ -23,9 +23,9 @@ const UserInfoDisplay = () => {
   };
 
   return (
-    <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
-        <h3 class="display-4">Your Current Profile</h3>
+    <div className="jumbotron jumbotron-fluid text-center">
+      <div className="container">
+        <h3 className="display-4">Your Current Profile</h3>
         <div className="form-group">
           <p id="user-name">
             <b>Name:</b> {userInfo.name}

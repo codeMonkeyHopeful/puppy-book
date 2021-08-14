@@ -71,7 +71,17 @@ export function updateUserProfileAction(display) {
 export function postUpdateUserProfile(userData) {
   //axios call here and use the response to populate
   return (dispatch) => {
-    dispatch(gotUpdateUserProfile(userData));
+    axios
+      .get("http://localhost:8000/api/user/update-profile", {
+        params: { userData: userData },
+      })
+      .then((response) => {
+        const userResponseJSON = JSON.parse(response.data);
+        dispatch(gotUpdateUserProfile(userResponseJSON));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 }
 

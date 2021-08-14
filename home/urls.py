@@ -17,6 +17,10 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path("api/", views.APIMain.as_view(), name="none"),
     path("api/login/<str:user_name>", views.UserLogin, name="UserLogin"),
-    path("api/user/getprofile/<str:user_name>", views.GetUserData, name="UserData")
-    # path('api/user/updateprofile/<str:user_name>')
+    path("api/user/getprofile/<str:user_name>", views.GetUserData, name="GetUserData"),
+    path(
+        "api/user/update-profile",
+        views.UpdateUserData.as_view(),
+        name="UpdateUserData",
+    ),
 ]

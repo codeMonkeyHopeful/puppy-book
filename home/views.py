@@ -44,5 +44,17 @@ def GetUserData(request, *args, **kwargs):
         return HttpResponse("")
 
 
-def UpdateUserData(request, *args, **kwargs):
-    return HttpResponse(status=200)
+def UpdateUserData1(request, *args, **kwargs):
+    # This would update the data in the DB before returning a status code that we could use to check the success/fail of the upsert
+    user_data = id = request.GET["userData"]
+
+    print("HERE", json.dumps(user_data))
+    return JsonResponse(json.dumps(user_data))
+
+
+class UpdateUserData(View):
+    def get(self, request):
+        user = request.GET["userData"]
+        print("HERE", user)
+        # userJSON = json.dumps(user)
+        return JsonResponse(user, safe=False)
