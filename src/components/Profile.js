@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getCurrentUserInfo,
-  updateUserProfileDisplay,
-} from "../store/actionCreators";
+import { getCurrentUserInfo } from "../store/actionCreators";
 import UserInfoDisplay from "./UserInfoDisplay";
 import ProfileUpdateForm from "./ProfileUpdateForm";
 

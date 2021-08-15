@@ -23,4 +23,6 @@ urlpatterns = [
         views.UpdateUserData.as_view(),
         name="UpdateUserData",
     ),
+    # path('api/user/deleteprofile' views.DeleteUserData.as_view(), name="DeleteUserData"),
+    # path('api/user/createprofile' views.CreateUserData.as_view(), name="CreateUserData"),
 ]
