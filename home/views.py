@@ -14,7 +14,8 @@ class APIMain(View):
         return HttpResponse("<div>im the api</div>")
 
 
-# This would authenticate the user, in this app we are simply passing back the user_name from the params
+# This would authenticate the user, in this app we are simply passing back
+# the user_name from the params
 def UserLogin(request, *args, **kwargs):
     # Grab from the route
     user_name = kwargs.get("user_name", "").lower()
@@ -24,6 +25,7 @@ def UserLogin(request, *args, **kwargs):
         return HttpResponse("")
 
 
+# Grab the current users data if any exists
 def GetUserData(request, *args, **kwargs):
     # mocking a call to the DB here, in reality this would use the params to hit the DB, pull back the specific user's dat and put it on the route
     # in our case we are assuming its Brady or Nothing
@@ -36,7 +38,6 @@ def GetUserData(request, *args, **kwargs):
             "userEmail": "brady@gmail.com",
             "userLocation": "Barkerville, OH",
         }
-
         # convert to send across the wire
         brady_data = json.dumps(brady_data)
         return HttpResponse(json.dumps(brady_data))
@@ -44,13 +45,7 @@ def GetUserData(request, *args, **kwargs):
         return HttpResponse("")
 
 
-def UpdateUserData1(request, *args, **kwargs):
-    # This would update the data in the DB before returning a status code that we could use to check the success/fail of the upsert
-    user_data = id = request.GET["userData"]
-
-    return JsonResponse(json.dumps(user_data))
-
-
+# Update the users' profile preferences
 class UpdateUserData(View):
     def get(self, request):
         user = request.GET["userData"]
