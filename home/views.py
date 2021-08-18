@@ -7,6 +7,7 @@ from requests.models import HTTPError
 from django.http import JsonResponse, HttpResponse, HttpResponseForbidden, Http404
 import json
 
+
 # Api landing page, just returning a response for testing purposes
 class APIMain(View):
     def get(self, request):
@@ -45,7 +46,7 @@ def GetUserData(request, *args, **kwargs):
     else:
         data = {
             "name": "",
-            "userId": 0,
+            "userId": None,
             "userEmail": "",
             "userLocation": "",
         }
@@ -58,5 +59,6 @@ class UpdateUserData(View):
     def get(self, request):
         user = request.GET["userData"]
         """ pass the data to the DB here and use the status code to send back the data or not
-        for now we are just passing the data back since there is no DB connection"""
+        for now we are just passing the data back since there is no DB connection
+        to store this data and grab on getUserData"""
         return JsonResponse(user, safe=False)
