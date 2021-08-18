@@ -13,8 +13,6 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(getUserName(e.target.user_input.value));
-
-    console.log("hit");
   };
 
   return (
