@@ -36,7 +36,6 @@ const ProfileUpdateForm = (props) => {
             type="email"
             className="form-control"
             id="email"
-            aria-describedby="emailHelp"
             placeholder="Your new email..."
           />
           <small id="emailHelp" className="form-text text-muted">
