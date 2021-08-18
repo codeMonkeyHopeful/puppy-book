@@ -27,7 +27,8 @@ def UserLogin(request, *args, **kwargs):
 
 # Grab the current users data if any exists
 def GetUserData(request, *args, **kwargs):
-    # mocking a call to the DB here, in reality this would use the params to hit the DB, pull back the specific user's dat and put it on the route
+    # mocking a call to the DB here, in reality this would use the params to hit the DB,
+    #  pull back the specific user's data and put it on the route
     # in our case we are assuming its Brady or Nothing
     user_name = kwargs.get("user_name").lower()
     # should make call to DB here

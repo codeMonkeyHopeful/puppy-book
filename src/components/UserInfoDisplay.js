@@ -11,7 +11,7 @@ const UserInfoDisplay = () => {
 
   useEffect(() => {
     // initial grab of the users info and simulate login
-    if (userInfo.userId == null) {
+    if (userInfo.userName == null) {
       dispatch(getCurrentUserInfo(userInfo.userName));
     } else {
       // update the db here with the new data from a form that doesn't exist

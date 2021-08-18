@@ -58,6 +58,7 @@ export function getCurrentUserInfo(user) {
     axios
       .get(`http://localhost:8000/api/user/getprofile/${user}`)
       .then((response) => {
+        // convert from the string that is passed across the wire
         const userInfoJSON = JSON.parse(response.data);
         dispatch(gotCurrentUserInfo(userInfoJSON));
       })
