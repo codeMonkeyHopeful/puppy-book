@@ -4,12 +4,17 @@ import { getUserName } from "../store/actionCreators";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const userName = useSelector((state) => state.currentUser).userName;
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // console.log(`change to ${userName}`);
+  }, [userName]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(getUserName(e.target.user_input.value));
+
+    console.log("hit");
   };
 
   return (
@@ -17,7 +22,7 @@ const Home = () => {
       <div className="text-center">
         <h1>Welcome to PuppyBook!</h1>
       </div>
-      <div className="centered">
+      <div className="centered" id="home-container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="user_input">What is your UserName?</label>

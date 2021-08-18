@@ -23,6 +23,7 @@ const ProfileUpdateForm = (props) => {
     };
 
     dispatch(postUpdateUserProfile(userData));
+    // remove the form from the page
     dispatch(updateUserProfileDisplay(false));
   }
 

@@ -20,9 +20,9 @@ def UserLogin(request, *args, **kwargs):
     # Grab from the route
     user_name = kwargs.get("user_name", "").lower()
     if user_name == "brady":
-        return HttpResponse(user_name)
+        return HttpResponse(json.dumps(user_name))
     else:
-        return HttpResponse("")
+        return HttpResponse(json.dumps(None))
 
 
 # Grab the current users data if any exists
@@ -42,7 +42,14 @@ def GetUserData(request, *args, **kwargs):
         brady_data = json.dumps(brady_data)
         return HttpResponse(json.dumps(brady_data))
     else:
-        return HttpResponse("")
+        data = {
+            "name": "",
+            "userId": 0,
+            "userEmail": "",
+            "userLocation": "",
+        }
+        data = json.dumps(data)
+        return HttpResponse(json.dumps(data))
 
 
 # Update the users' profile preferences

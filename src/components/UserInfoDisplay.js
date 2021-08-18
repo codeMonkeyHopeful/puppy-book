@@ -10,11 +10,11 @@ const UserInfoDisplay = () => {
   const userInfo = useSelector((state) => state.currentUser);
 
   useEffect(() => {
-    // initial grab of the users info
+    // initial grab of the users info and simulate login
     if (userInfo.userId == null) {
       dispatch(getCurrentUserInfo(userInfo.userName));
     } else {
-      // update the db here with the new data
+      // update the db here with the new data from a form that doesn't exist
     }
   }, []);
 
