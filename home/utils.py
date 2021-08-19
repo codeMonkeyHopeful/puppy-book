@@ -5,8 +5,9 @@ import json
 #  pull in our config file that isn't tracked but hold Env vars
 from jproperties import Properties
 
+# intialize
 configs = Properties()
-
+# load all vars to the configs
 with open("app-config.properties", "rb") as config_file:
     configs.load(config_file)
 
@@ -18,6 +19,7 @@ def create_connection():
         database=str(configs.get("DB_NAME").data),
         user=str(configs.get("DB_USER").data),
         password=str(configs.get("DB_PWD").data),
+        port=str(configs.get("PORT").data),
     )
     return conn
 
