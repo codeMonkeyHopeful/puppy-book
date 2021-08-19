@@ -11,9 +11,6 @@ with open("app-config.properties", "rb") as config_file:
     configs.load(config_file)
 
 
-print("TESTING:", configs.get("DB_HOST").data)
-
-
 def create_connection():
     conn = psycopg2.connect(
         host=str(configs.get("DB_HOST").data),
