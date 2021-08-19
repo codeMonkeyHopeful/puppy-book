@@ -12,6 +12,7 @@ with open("app-config.properties", "rb") as config_file:
 
 
 def create_connection():
+    # create the actual connection to the DB leveraging the config vars
     conn = psycopg2.connect(
         host=str(configs.get("DB_HOST").data),
         database=str(configs.get("DB_NAME").data),
@@ -22,10 +23,13 @@ def create_connection():
 
 
 def query_db(query):
+    # open the connection to the DB
     conn = create_connection()
+    # Read the query and return the result
     df = pd.read_sql(
         str(query),
         con=conn,
-        #     chunksize=False
     )
+    # close the connection to the DB
+    conn.close()
     return df.to_json(orient="records")

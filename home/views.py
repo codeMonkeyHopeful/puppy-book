@@ -6,8 +6,6 @@ from requests import status_codes
 from requests.models import HTTPError
 from django.http import JsonResponse, HttpResponse, HttpResponseForbidden, Http404
 import json
-
-
 from . import utils
 
 
