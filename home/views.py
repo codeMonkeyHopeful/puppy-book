@@ -8,16 +8,8 @@ from django.http import JsonResponse, HttpResponse, HttpResponseForbidden, Http4
 import json
 
 
-#  pull in our config file that isn't tracked but hold Env vars
-from jproperties import Properties
+from . import utils
 
-configs = Properties()
-
-with open("app-config.properties", "rb") as config_file:
-    configs.load(config_file)
-
-
-print("TESTING:", configs.get("DB_User"))
 
 # Api landing page, just returning a response for testing purposes
 class APIMain(View):
