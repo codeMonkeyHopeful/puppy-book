@@ -1,6 +1,7 @@
 import pandas as pd
 import psycopg2
 import json
+from django.db.utils import OperationalError
 
 #  pull in our config file that isn't tracked but hold Env vars
 from jproperties import Properties
@@ -48,8 +49,11 @@ def query_sql(query, type_of):
     )
 
     cursor = conn.cursor()
-    cursor.execute(query)
-    conn.commit()
+    try:
+        cursor.execute(query)
+        conn.commit()
+    except OperationalError as e:
+        print(e)
     # pull out the results for passing back
     data = cursor.fetchall() if type_of == "get" else ""
     # close the connections to be safe and efficent
@@ -62,6 +66,27 @@ def query_sql(query, type_of):
 # Setup the initial database with Brady as a user
 # We also clear this out for testing as we will be modifying brady a lot
 def initial_startup():
+
+    create_schema_query = """
+    CREATE SCHEMA IF NOT EXISTS puppy_book
+    """
+
+    query_sql(create_schema_query, "create_schema")
+
+    create_user_table_query = """
+    CREATE TABLE IF NOT EXISTS puppy_book.users
+(
+    user_id bigint NOT NULL,
+    user_name text,
+    user_email text,
+    user_location text,
+    name text,
+    PRIMARY KEY (user_id)
+);
+    """
+
+    query_sql(create_user_table_query, "create")
+
     truncate_query = """
         truncate puppy_book.users
     """
