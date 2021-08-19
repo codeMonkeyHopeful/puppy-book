@@ -9,14 +9,6 @@ import json
 from . import utils
 
 
-query = """
-select 1+1 
-from test.test_table
-"""
-
-result = utils.query_db(query)
-print("here", result)
-
 # Api landing page, just returning a response for testing purposes
 class APIMain(View):
     def get(self, request):
